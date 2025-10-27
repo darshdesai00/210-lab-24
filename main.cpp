@@ -1,16 +1,16 @@
 #include <iostream>
 #include <fstream>
 #include <iomanip>
-#include <list>
+#include <set>
 #include "Goat.h"
 using namespace std;
 
 const int SZ_NAMES = 200, SZ_COLORS = 25, MAX_AGE = 20;
 
-int select_goat(list<Goat> trip);
-void delete_goat(list<Goat> &trip);
-void add_goat(list<Goat> &trip, string [], string []);
-void display_trip(list<Goat> trip);
+int select_goat(set<Goat> trip);
+void delete_goat(set<Goat> &trip);
+void add_goat(set<Goat> &trip, string [], string []);
+void display_trip(set<Goat> trip);
 int main_menu();
 
 // menu function
@@ -35,7 +35,7 @@ int main_menu() {
     return choice;   // was missing this brace "checked"
 }                    
 
-void add_goat(list<Goat> &trip, string names[], string colors[]) {
+void add_goat(set<Goat> &trip, string names[], string colors[]) {
     // beloe creates a random goat using arrays
     string n = names[rand() % SZ_NAMES];
     string c = colors[rand() % SZ_COLORS];
@@ -43,7 +43,7 @@ void add_goat(list<Goat> &trip, string names[], string colors[]) {
 
     // creates and add Goat object
     Goat g(n, a, c);
-    trip.push_back(g);
+    trip.insert(g);
 
     cout << n << " (" << c << ", " << a << ") added to the trip!" << endl;
 }
