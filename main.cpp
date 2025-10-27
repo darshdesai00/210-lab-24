@@ -49,7 +49,7 @@ void add_goat(set<Goat> &trip, string names[], string colors[]) {
 }
 
     // below is the display trip funcion
-void display_trip(list<Goat> trip) {
+void display_trip(set<Goat> trip) {
     if (trip.empty()) {
         cout << "No goats in the trip right now." << endl;
         return;
@@ -65,7 +65,7 @@ void display_trip(list<Goat> trip) {
 }
 
 // basically lets you choose which goat you want to delete later
-int select_goat(list<Goat> trip) {
+int select_goat(set<Goat> trip) {
     display_trip(trip);
     if (trip.empty()) return -1;
 
@@ -76,7 +76,7 @@ int select_goat(list<Goat> trip) {
 }
 
 // adding delete goat func
-void delete_goat(list<Goat> &trip) {
+void delete_goat(set<Goat> &trip) {
     if (trip.empty()) {
         cout << "No goats to delete." << endl;
         return;
@@ -114,7 +114,7 @@ int main() {
     fin1.close();
 
     // this is the goat trip list
-    list<Goat> trip;
+    set<Goat> trip;
     int choice;
 
     // main menu loop (Replaced cout lines)
