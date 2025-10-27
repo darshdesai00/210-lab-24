@@ -7,7 +7,6 @@ using namespace std;
 
 const int SZ_NAMES = 200, SZ_COLORS = 25, MAX_AGE = 20;
 
-int select_goat(set<Goat> trip);
 void delete_goat(set<Goat> &trip);
 void add_goat(set<Goat> &trip, string [], string []);
 void display_trip(set<Goat> trip);
@@ -64,16 +63,6 @@ void display_trip(set<Goat> trip) {
     }
 }
 
-// basically lets you choose which goat you want to delete later
-int select_goat(set<Goat> trip) {
-    display_trip(trip);
-    if (trip.empty()) return -1;
-
-    cout << "Enter goat number to delete: ";
-    int num;
-    cin >> num;
-    return num;
-}
 
 // adding delete goat func
 void delete_goat(set<Goat> &trip) {
@@ -86,11 +75,17 @@ void delete_goat(set<Goat> &trip) {
     cout << "Enter goat name to delete" ;
     cin >> target;
 
-    
+    Goat temp(target);
+    set<Goat>::iterator it = trip.find(temp);
 
+    if (it != trip.end()) {
+        cout << "Removing " << it->get_name() << "..." << endl;
+        trip.erase(it);
+    } else {
+        cout << "Goat not found." << endl;
+    }
 
 }
-
 
 // main function
 int main() {

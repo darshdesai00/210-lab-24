@@ -3,6 +3,7 @@
 #ifndef GOAT_H
 #define GOAT_H
 #include <iostream>
+#include <string>
 using namespace std;
 
 class Goat {
