@@ -82,16 +82,13 @@ void delete_goat(set<Goat> &trip) {
         return;
     }
     
-    int num = select_goat(trip);
-    if (num < 1 || num > trip.size()) {
-        cout << "Invalid goat number." << endl;
-        return;
-    }
+    string target;
+    cout << "Enter goat name to delete" ;
+    cin >> target;
 
-    auto it = trip.begin();
-    advance(it, num - 1);
-    cout << "Removing " << it->get_name() << "..." << endl;
-    trip.erase(it);
+    
+
+
 }
 
 
